@@ -1,0 +1,280 @@
+{% extends "base.html" %}
+{% block title %} {{super() }}
+
+{% endblock %}
+
+{% block content %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
+  <!-- Include Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+  <style>
+  
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.5rem;
+}
+
+.hover-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 15px;
+}
+
+.hover-nav li {
+  text-align: center;
+
+}
+
+.hover-nav li a {
+  position: relative;
+  display: block;
+  color: #000;
+  text-align: center;
+  padding: 8px 12px;
+  text-decoration: none;
+  z-index: 0;
+}
+
+li a::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #2683f6;
+  z-index: -1;
+  transform: scale(0);
+  transition: 0.5s ease-in-out;
+}
+
+li a:hover::before,
+li a:focus::before {
+  transform: scale(1);
+}
+
+.container {
+  display: flex;
+  background-color: blue;
+  justify-content: space-between;
+  align-items: center;
+  height: 90vh;
+  padding: 0 10%;
+}
+ 
+ .intro {
+     flex: 1;
+     padding-right: 50px;
+     color: #ffffff;
+ }
+ 
+ .skills {
+     flex: 1;
+     background-color: #ffffff;
+     padding: 30px;
+     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+     border-radius: 10px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-evenly;
+ }
+ 
+ .skill-sub {
+     padding: 10px;
+    
+     
+ }.skill-sub ul{
+   list-style-type: none;
+ }
+
+ /* ... Your existing CSS ... */
+
+@media (max-width: 768px) {
+  /* Styles for screens up to 768px wide */
+  .intro {
+    text-align: center;
+  }
+}
+
+
+ </style>
+</head>
+<body>
+  <nav class="navbar  navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Ishmael</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbar-menu">
+        <ul class="navbar-nav hover-nav me-auto mb-2 mb-lg-2">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
+          </li>
+          <li  class="nav-item">
+            <a class="nav-link" href="{{url_for('about')}}">About</a>
+          </li>
+          <li  class="nav-item">
+            <a class="nav-link" href="{{url_for('education')}}">Education</a>
+          </li>
+          <li  class="nav-item">
+            <a class="nav-link" href="{{url_for('blog')}}">Blog</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+  </nav>
+  <section class="container-fluid">
+   <div class="container">
+    <div class="intro p-5" id="intro">
+        <h1>I'm Moisema M. Dukuly</h1>
+        <h3>A Frondend Developer</h3>
+        <p>I'm passionate about creating digital experiences that leave an impact.</p>
+    </div>
+    <div class="skills p-4">
+        <div class="skill-sub">
+            <h2>Skills</h2>
+            <ul>
+                <li>Web Design</li>
+                <li>Linux</li>
+                <li>Cyber Security</li>
+            </ul>
+        </div>
+        <div class="skill-sub">
+            <h2>More Skills</h2>
+            <ul>
+                <li>SQL</li>
+                <li>Python</li>
+                <li>Javascript</li>
+                <li>JQuery</li>
+                <li>Front-end Development</li>
+            </ul>
+        </div>
+    </div>                                        
+  </div>
+  </section>
+    
+  <section class="container-lg my-5">
+    <h1 class="text-center">Contact Me</h1>
+    <div class="card mb-0" data-aos="zoom-in">
+                  
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card-body">
+            <form action="/sendemail/" method="POST">
+              <div class="p pb-3">
+                <strong>Feel free to contact </strong>
+              </div>
+              <div class="row mb-3">
+                <div class="col">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i
+                        class="fa fa-user-circle"></i></span>
+                    <input class="form-control" type="text" 
+                           name="name" placeholder="Name"
+                      required="required" />
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i
+                        class="fa fa-file-text"></i></span>
+                    <input class="form-control" type="text" 
+                           name="Subject" placeholder="Subject"
+                      required="required" />
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i
+                        class="fa fa-envelope"></i></span>
+                    <input class="form-control" type="email" 
+                           name="_replyto" placeholder="E-mail"
+                      required="required" />
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col">
+                  <div class="form-group">
+                    <textarea class="form-control" name="message" 
+                              placeholder="Your Message"
+                      required="required"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+
+                  <button class="btn btn-primary" type="submit">
+                    Send
+                  </button>
+                  <a class="btn btn-primary" target="_blank"
+                    href="{{ url_for('static',filename='/uploads/CV.pdf')}}" 
+                     data-aos="zoom-in"
+                    data-aos-anchor="data-aos-anchor">
+                    Download CV</a>
+
+
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <p class="mb-0">
+              <strong>Address </strong>
+            </p>
+
+            <p class="pb-2">Old Road, Tupee Taylor's Curver, Broklyn Avenue</p>
+
+            <p class="mb-0"><strong>Phone</strong></p>
+
+            <p class="pb-2">+231776697736</p>
+
+            <p class="mb-0"><strong>Email</strong></p>
+
+              
+  <p>techlife5220@gmail.com</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- footer section -->
+</section>
+  
+  <div class="container-fluid my-4">
+    <footer class="bg-primary text-light text-center py-3">
+      <p>&copy; 2023 techMaestro<span style="font-size: 50; color: rgb(255, 0, 0);">&hearts;</span>. All rights reserved.</p>
+    </footer>
+  </div>
+  <!-- Include Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  {% endblock %}
+</body>
+</html>

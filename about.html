@@ -1,0 +1,227 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Include Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $(".hero-section").click(function(){
+        $(".hero-section").fadeOut("slow").fadeIn("slow")
+    });
+});
+
+</script>
+  <style>
+.hover-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 15px;
+}
+
+.hover-nav li {
+  text-align: center;
+
+}
+
+.hover-nav li a {
+  position: relative;
+  display: block;
+  color: #000;
+  text-align: center;
+  padding: 8px 12px;
+  text-decoration: none;
+  z-index: 0;
+}
+
+li a::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #2683f6;
+  z-index: -1;
+  transform: scale(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+li a:hover::before,
+li a:focus::before {
+  transform: scale(1);
+}
+    .about-section {
+      padding: 100px 0;
+      background-color: #ffffff;
+    }
+    .about-content {
+      margin-top: 50px;
+    }
+    .profile-img {
+      max-width: 100%;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .skills-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .skills-list li {
+      margin-bottom: 10px;
+    }
+
+    /* The hero section  */
+    .hero-section {
+        background-image: url('hero-bg.jpg');
+        background: blue;
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        text-align: center;
+        padding: 150px 0;
+      }
+          /* Apply custom styles to the hero section */
+          .hero-section h1 {
+              font-size: 3rem;
+              margin-bottom: 20px;
+          }
+  
+          .hero-section p {
+              font-size: 1.5rem;
+          }
+
+    .about-section {
+      display: flex;
+      align-items: center;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 1.5rem;
+    }
+    .about-text {
+      padding: 20px;
+    }
+    .soft-skill{
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 1.5rem;
+    }
+    .profile-image {
+      max-width: 100%;
+      height: auto;
+    }
+    .styled-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .styled-list li::before {
+      content: '\2022';
+      color: #007bff;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+    .hire-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .hire-button:hover {
+      background-color: #0056b3;
+    }
+   .footer {
+      background-color: blue;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.5em;
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Ishmael</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          <div class="collapse navbar-collapse hover-nav" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link " href="{{url_for('home')}}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{url_for('about')}}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('education')}}">Education</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('blog')}}">Blog</a>
+              </li>
+            </ul>
+          </div>
+          </div>
+      </nav>
+</header>
+<main>
+  <section>
+    <div class="hero-section">
+     <span class="hero-text">
+        <h1>Moisema M. Dukuly</h1>
+        <h2>A Software Engineer</h2>
+     </span>
+  </div>
+
+  </section>
+  <div class="container">
+    <div class="row about-section">
+      <div class="col-md-6">
+        <img src="https://img.freepik.com/premium-vector/avatar-man-with-beard-office-worker-wearing-glasses-it-developer-engineer-programmer_277909-144.jpg?w=2000" alt="Your Image" class="profile-image">
+      </div>
+      <div class="col-md-6 about-text">
+        <h1>About Me</h1>
+        <p>Hello! I'm Moisema Dukuly, a passionate front-end developer with 2 years of experience.</p>
+        <p>I thrive on creating beautiful and user-friendly websites that provide engaging experiences for users. My journey in the world of web development has allowed me to refine my skills and develop a strong foundation in HTML, CSS, and JavaScript.</p>
+        <p>In my previous role at Teacher's Village, I was responsible for designing and developing intuitive user interfaces that seamlessly blended aesthetics with functionality. My collaborative nature enabled me to work effectively with diverse teams of developers and designers to achieve outstanding results.</p>
+        <p>With a proven track record of meeting deadlines and delivering high-quality work, I'm confident in my ability to contribute significantly to your team. I'm not only a skilled developer but also a quick learner, always eager to embrace new challenges.</p>
+        <p>Besides my technical prowess, my strong communication skills and ability to work harmoniously with both technical and non-technical stakeholders set me apart. I excel at creating clear and concise technical documentation and have proficiency in various content management systems (CMS).</p>
+        <p>If you're looking for a motivated, results-oriented individual who can bring both technical expertise and soft skills to your company, I'm excited to explore how I can help you achieve your goals. Feel free to reach out to me!</p>
+        <a href="{{url_for('home')}}">
+          <button class="hire-button">Hire Me</button>
+        </a>
+      </div>
+    </div>
+    <div class="row soft-skill">
+      <div class="col-md-12">
+        <h2>Soft Skills</h2>
+        <p>In addition to my technical skills, I also have strong soft skills that make me a valuable asset to any team. I am a great communicator and I am able to work effectively with both technical and non-technical stakeholders. I am also a quick learner and I am always eager to take on new challenges.</p>
+        <p>I am also a strong content creator and I am able to write clear and concise technical documentation. I am also proficient in using a variety of content management systems (CMS).</p>
+        <p>I am confident that my technical skills and soft skills would make me a valuable asset to your team. I am eager to learn more about your company and your needs and I look forward to hearing from you soon.</p>
+      </div>
+    </div>
+</main>
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2023 techMaestro<span style="font-size: 50; color: rgb(255, 0, 0)">&hearts;</span>. All rights reserved.</p>
+  </div>
+</footer>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+</body>
+</html>

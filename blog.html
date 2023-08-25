@@ -1,0 +1,268 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+
+
+{% block content %}
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+  body{
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 1.5rem;
+  }
+.hover-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 15px;
+}
+
+.hover-nav li {
+  text-align: center;
+
+}
+
+.hover-nav li a {
+  position: relative;
+  display: block;
+  color: #000;
+  text-align: center;
+  padding: 8px 12px;
+  text-decoration: none;
+  z-index: 0;
+}
+
+li a::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #2683f6;
+  z-index: -1;
+  transform: scale(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+li a:hover::before,
+li a:focus::before {
+  transform: scale(1);
+}
+      body{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .card {
+      border: none;
+      margin-bottom: 30px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+  }
+  
+  .card:hover {
+      transform: translateY(-5px);
+  }
+  
+  .card-title {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #333333;
+  }
+  
+  .card-text {
+      font-size: 1.2rem;
+      color: #666666;
+  }
+  
+  .card-img-top {
+      max-height: 300px;
+      object-fit: cover;
+  }
+  
+    .card-footer {
+      background-color: #f8f9fa;
+      color: #555555;
+      font-size: 0.9rem;
+  }
+  
+  /* Read More Button */
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  .hover-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 15px;
+}
+
+.hover-nav li {
+  text-align: center;
+
+}
+
+.hover-nav li a {
+  position: relative;
+  display: block;
+  color: #000;
+  text-align: center;
+  padding: 8px 12px;
+  text-decoration: none;
+  z-index: 0;
+}
+
+li a::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #2683f6;
+  z-index: -1;
+  transform: scale(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+li a:hover::before,
+li a:focus::before {
+  transform: scale(1);
+}
+  
+  /* Footer Styles */
+  .footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  /* Custom Media Query for Smaller Screens */
+  @media (max-width: 768px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+      padding-left: 0;
+      padding-right: 15px;
+    }
+  
+    .card-deck {
+      flex-direction: column;
+    }
+  
+    .card {
+      width: 100%;
+  
+  }
+  
+  }
+  </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Ishmael</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse hover-nav" id="navbar-menu">
+          <ul class="navbar-nav hover-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('home')}}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('about')}}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('education')}}">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{{url_for('blog')}}">Blog</a>
+            </li>
+          </ul>
+        </div>
+        </div>  
+    </nav>
+</header>
+<!-- Blog Section -->
+<section class="container mt-5">
+<div class="row">
+  <div class="col-md-8">
+    <div class="card mb-4">
+      <img src="https://picsum.photos/200/300" class="card-img-top" alt="Blog Image">
+      <div class="card-body">
+        <h2 class="card-title"> "The Power of Mindfulness: Cultivating Inner Peace"</h2>
+        <p class="card-text">In our fast-paced world, finding moments of peace and tranquility has become a rare luxury. In this blog post, we explore the concept of mindfulness and its remarkable ability to bring us back to the present moment. Discover the science behind mindfulness, its benefits for reducing stress, improving focus, and enhancing overall well-being. Learn practical tips to incorporate mindfulness into your daily routine and experience the transformative effects it can have on your life.</p>
+        <a href="#" class="btn btn-primary">Read more</a>
+      </div>
+    </div>
+    <div class="card mb-4">
+      <img src="https://picsum.photos/200/300" class="card-img-top" alt="Blog Image 1">
+      <div class="card-body">
+        <h2 class="card-title"> "Exploring the Wonders of Astrophotography"</h2>
+        <p class="card-text">Have you ever gazed at the night sky, wondering about the mysteries beyond our planet? Astrophotography offers a unique way to capture the beauty of the cosmos. In this blog post, embark on a journey through the world of astrophotography. From capturing breathtaking shots of the Milky Way to photographing elusive meteor showers, we delve into the equipment, techniques, and post-processing methods that will help you create stunning celestial images. Whether you're a beginner or an experienced photographer, get ready to explore the wonders of the universe through your lens.</p>
+        <a href="#" class="btn btn-primary">Read more</a>
+      </div>
+      <div class="card-footer text-muted">
+        Posted on August 15, 2023 by <a href="#">Your Name</a>
+      </div>
+    </div>
+    <div class="card mb-4">
+      <img src="https://picsum.photos/200/300" class="card-img-top" alt="Blog Image 1">
+      <div class="card-body">                            
+        <h2 class="card-title">"The Art of Storytelling: Crafting Compelling Narratives"</h2>
+        <p class="card-text">Since ancient times, storytelling has been a fundamental way of conveying knowledge, emotions, and culture. In this blog post, we delve into the art of storytelling and its timeless significance. Discover the key elements of a compelling narrative, whether in literature, film, or even business presentations. Learn how to create well-developed characters, build immersive worlds, and master the art of pacing to keep your audience engaged from beginning to end. Whether you're an aspiring writer or simply fascinated by the magic of stories, this post is your guide to becoming a master storyteller.</p>
+        <a href="#" class="btn btn-primary">Read more</a>
+      </div>
+      <div class="card-footer text-muted">
+        Posted on August 19, 2023 by <a href="#">Ishmael Dukuly</a>
+      </div>
+    </div>
+    <div class="card mb-4">
+      <img src="https://picsum.photos/200/300" class="card-img-top" alt="Blog Image 1">
+      <div class="card-body">
+        <h2 class="card-title"> "Sustainable Fashion: Redefining Style with Eco-Conscious Choices"</h2>
+        <p class="card-text">The fashion industry has a significant impact on the environment, but a new movement is on the rise sustainable fashion. In this blog post, we dive into the world of eco-conscious style. Explore the importance of choosing ethical and sustainable clothing options, from eco-friendly fabrics to supporting brands that prioritize fair labor practices. Discover practical tips for building a timeless and versatile wardrobe that aligns with your values. Join the fashion revolution that combines creativity, self-expression, and environmental responsibility.</p>
+        <a href="#" class="btn btn-primary">Read more</a>
+      </div>
+      <div class="card-footer text-muted">
+        Posted on August 19, 2023 by <a href="#">Ishmael Dukuly</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <!-- Sidebar content can be added here -->
+    <ul>
+      <li><a href="">Web Development</a></li>
+      <li><a href="">AI learning</a></li>
+      <li><a href="">Python</a></li>
+      <li><a href="">SQl</a></li>
+    </ul>
+  </div>
+</div>
+<h1 id="hd">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde aliquam, ipsa error velit sapiente cupiditate eius quis quas doloribus numquam commodi in cum quo, facilis explicabo doloremque sed eum officiis!
+</h1>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary text-light text-center py-3">
+<p>&copy; 2023 techMaestro <span style="font-size: 50; color: rgb(255, 0, 0);">&hearts;</span>. All rights reserved.</p>
+</footer>
+<!-- Include Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+</body>
+</html>
